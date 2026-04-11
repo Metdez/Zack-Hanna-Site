@@ -3,16 +3,16 @@ import SectionLabel from "../SectionLabel";
 
 export default function LookingFor() {
   return (
-    <section id="looking-for" className="relative px-6 md:px-12 lg:px-20 py-32 md:py-56">
+    <section id="looking-for" className="relative px-6 sm:px-8 md:px-12 lg:px-20 py-24 sm:py-32 md:py-56">
       <div className="max-w-5xl mx-auto space-y-16">
         <Reveal>
           <SectionLabel index="04">What I&apos;m Looking For</SectionLabel>
         </Reveal>
         <Reveal delay={0.1}>
           <p
-            className="font-display font-light leading-[1.1] tracking-[-0.02em] text-pearl"
+            className="font-display font-light leading-[1.1] tracking-[-0.02em] text-pearl break-words"
             style={{
-              fontSize: "clamp(1.875rem, 4.2vw, 3.75rem)",
+              fontSize: "clamp(1.5rem, 5.5vw, 3.75rem)",
               fontVariationSettings: '"opsz" 96, "SOFT" 50',
             }}
           >

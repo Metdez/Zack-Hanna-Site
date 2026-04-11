@@ -19,7 +19,7 @@ export default function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      className="group grid grid-cols-12 gap-6 md:gap-10 items-center"
+      className="group grid grid-cols-12 gap-4 sm:gap-6 md:gap-10 items-center"
     >
       {/* Screenshot */}
       <div
@@ -37,7 +37,7 @@ export default function ProjectCard({
               src={project.image}
               alt={project.name}
               fill
-              sizes="(max-width: 768px) 100vw, 58vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 58vw"
               className={`object-cover ${project.imagePosition ?? "object-left"}`}
             />
           ) : (
@@ -95,7 +95,7 @@ export default function ProjectCard({
               href={`https://${project.link}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex cursor-pointer items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-pearl border border-pearl/20 px-4 py-2.5 transition-all duration-500 hover:border-accent hover:text-accent hover:bg-accent/5 focus-visible:outline-none focus-visible:border-accent focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+              className="inline-flex cursor-pointer items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-pearl border border-pearl/20 min-h-[44px] px-4 py-3 transition-all duration-500 hover:border-accent hover:text-accent hover:bg-accent/5 focus-visible:outline-none focus-visible:border-accent focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               <span>{project.link}</span>
               <span className="transition-transform duration-500 group-hover:translate-x-1">
@@ -107,7 +107,7 @@ export default function ProjectCard({
             <a
               href={project.download.href}
               download
-              className="inline-flex cursor-pointer items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-accent border border-accent/40 px-4 py-2.5 transition-all duration-500 hover:border-accent hover:bg-accent/10 focus-visible:outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+              className="inline-flex cursor-pointer items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-accent border border-accent/40 min-h-[44px] px-4 py-3 transition-all duration-500 hover:border-accent hover:bg-accent/10 focus-visible:outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               <span>{project.download.label}</span>
               <span aria-hidden="true">↓</span>
@@ -118,7 +118,7 @@ export default function ProjectCard({
               href={project.secondaryLink.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex cursor-pointer items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-pearl border border-pearl/20 px-4 py-2.5 transition-all duration-500 hover:border-accent hover:text-accent hover:bg-accent/5 focus-visible:outline-none focus-visible:border-accent focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+              className="inline-flex cursor-pointer items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-pearl border border-pearl/20 min-h-[44px] px-4 py-3 transition-all duration-500 hover:border-accent hover:text-accent hover:bg-accent/5 focus-visible:outline-none focus-visible:border-accent focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               <span>{project.secondaryLink.label}</span>
               <span aria-hidden="true">↗</span>

@@ -82,7 +82,7 @@ export default function Nav() {
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}
-          className="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink rounded-sm"
+          className="md:hidden flex flex-col items-center justify-center gap-1.5 min-h-[44px] min-w-[44px] p-3 -mr-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink rounded-sm"
         >
           <span
             className={`h-px w-6 bg-pearl transition-transform duration-500 ${
@@ -114,13 +114,13 @@ export default function Nav() {
               <button
                 type="button"
                 onClick={() => go(l.id)}
-                className="w-full flex items-baseline justify-between py-4 border-b border-pearl/5 group cursor-pointer focus-visible:outline-none focus-visible:bg-pearl/5 rounded-sm"
+                className="w-full min-h-[56px] flex items-baseline justify-between py-4 border-b border-pearl/5 group cursor-pointer focus-visible:outline-none focus-visible:bg-pearl/5 rounded-sm"
               >
                 <span className="font-mono text-[10px] tracking-[0.25em] text-accent/60">
                   {l.index}
                 </span>
                 <span
-                  className="font-display text-3xl text-pearl group-hover:text-accent transition-colors duration-500"
+                  className="font-display text-2xl sm:text-3xl text-pearl group-hover:text-accent transition-colors duration-500"
                   style={{ fontVariationSettings: '"opsz" 72, "SOFT" 30' }}
                 >
                   {l.label}

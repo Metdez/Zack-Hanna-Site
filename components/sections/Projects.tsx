@@ -5,7 +5,7 @@ import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
   return (
-    <section id="built" className="relative px-6 md:px-12 lg:px-20 py-32 md:py-48">
+    <section id="built" className="relative px-6 sm:px-8 md:px-12 lg:px-20 py-24 sm:py-32 md:py-48">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-12 gap-8 mb-24 md:mb-36">
           <div className="col-span-12 md:col-span-4">
@@ -28,7 +28,7 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="space-y-32 md:space-y-44">
+        <div className="space-y-24 sm:space-y-32 md:space-y-44">
           {projects.map((p, i) => (
             <ProjectCard key={p.name} project={p} index={i} />
           ))}

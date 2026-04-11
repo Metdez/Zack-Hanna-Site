@@ -38,8 +38,8 @@ export default function Hero() {
           </motion.div>
 
           <h1
-            className="font-display font-light leading-[0.85] tracking-[-0.04em] text-pearl whitespace-nowrap"
-            style={{ fontSize: "clamp(2.5rem, 8vw, 9rem)" }}
+            className="font-display font-light leading-[0.85] tracking-[-0.04em] text-pearl md:whitespace-nowrap break-words"
+            style={{ fontSize: "clamp(2.25rem, 12vw, 9rem)" }}
           >
             {NAME.split("").map((char, i) => (
               <motion.span
@@ -90,7 +90,7 @@ export default function Hero() {
             <button
               type="button"
               onClick={() => scrollTo("built")}
-              className="group inline-flex cursor-pointer items-center gap-3 border border-accent bg-accent/10 px-6 py-3 font-mono text-[11px] uppercase tracking-[0.25em] text-accent transition-all duration-500 hover:bg-accent hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+              className="group inline-flex min-h-[44px] cursor-pointer items-center gap-3 border border-accent bg-accent/10 px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.25em] text-accent transition-all duration-500 hover:bg-accent hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               <span>View work</span>
               <span className="transition-transform duration-500 group-hover:translate-x-1">
@@ -101,7 +101,7 @@ export default function Hero() {
               href="https://calendly.com/zh-licom/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex cursor-pointer items-center gap-3 border border-pearl/20 px-6 py-3 font-mono text-[11px] uppercase tracking-[0.25em] text-pearl transition-all duration-500 hover:border-pearl hover:bg-pearl/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pearl focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+              className="group inline-flex min-h-[44px] cursor-pointer items-center gap-3 border border-pearl/20 px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.25em] text-pearl transition-all duration-500 hover:border-pearl hover:bg-pearl/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pearl focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               <span>Book a call</span>
               <span className="transition-transform duration-500 group-hover:translate-x-1">
