@@ -72,8 +72,8 @@ export default function Hero() {
             className="max-w-2xl text-lg md:text-xl text-pearl/75 leading-relaxed font-light"
           >
             I build software that solves business problems — and I&apos;m looking
-            for an AI strategy role this summer where I can learn how companies
-            operationalize AI at scale.
+            for an AI strategy role this summer where I can help a company
+            operationalize AI across its operations.
           </motion.p>
 
           {/* Primary CTAs */}
