@@ -17,8 +17,9 @@ export default function LookingFor() {
             }}
           >
             An AI strategy role for{" "}
-            <span className="text-accent italic">Summer 2026</span> where I
-            help a company figure out where AI fits into their operations —
+            <span className="text-accent italic pr-[0.15em]">Summer 2026</span>{" "}
+            where I help a company figure out where AI fits into their
+            operations —
             what to adopt, how to govern it, how to measure whether it&apos;s
             working, and how to get teams actually using it.{" "}
             <span className="text-pearl/60">
