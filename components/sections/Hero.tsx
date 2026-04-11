@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { useLenis } from "lenis/react";
+import LookingForSpec from "../LookingForSpec";
 
 const NAME = "ZACK HANNA";
 
@@ -108,6 +109,18 @@ export default function Hero() {
                 →
               </span>
             </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1,
+              delay: 0.2 + NAME.length * 0.05 + 0.7,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            <LookingForSpec />
           </motion.div>
         </div>
 
