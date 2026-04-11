@@ -41,9 +41,9 @@ export default function OutroLoop() {
     <section
       ref={sectionRef}
       id="outro-loop"
-      className="relative overflow-hidden motion-reduce:hidden px-6 py-16 md:px-0 md:py-0 md:w-screen md:left-1/2 md:-translate-x-1/2 md:h-[100svh]"
+      className="relative overflow-hidden motion-reduce:hidden w-screen left-1/2 -translate-x-1/2 py-10 md:py-0 md:h-[100svh]"
     >
-      <div className="relative w-full aspect-video md:aspect-auto md:h-full overflow-hidden">
+      <div className="relative w-full aspect-[3/4] md:aspect-auto md:h-full overflow-hidden">
         {/* Fullscreen video — plays only when in view, always silent */}
         <video
           ref={videoRef}
