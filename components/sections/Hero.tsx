@@ -116,7 +116,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.0, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="col-span-12 md:col-span-3 flex md:justify-end"
+          className="col-span-12 md:col-span-3 flex flex-col items-center md:items-end gap-4"
         >
           <div className="relative group w-48 sm:w-56 md:w-full md:max-w-[260px]">
             {/* Accent frame */}
@@ -144,6 +144,25 @@ export default function Hero() {
               </div>
             </div>
           </div>
+          {/* LinkedIn button */}
+          <a
+            href="https://www.linkedin.com/in/zackary-hanna-515138331/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Zack Hanna on LinkedIn"
+            className="group inline-flex min-h-[44px] items-center gap-2 border border-pearl/20 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.25em] text-pearl transition-all duration-500 hover:border-accent hover:text-accent hover:bg-accent/5 focus-visible:outline-none focus-visible:border-accent focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-4 w-4"
+              aria-hidden="true"
+            >
+              <path d="M20.452 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.356V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.602 0 4.268 2.37 4.268 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.78 13.019H3.555V9h3.562v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+            <span>LinkedIn</span>
+          </a>
         </motion.div>
       </div>
 
