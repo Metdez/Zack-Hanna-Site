@@ -38,7 +38,7 @@ export default function Hero() {
           </motion.div>
 
           <h1
-            className="font-display font-light leading-[0.85] tracking-[-0.04em] text-pearl md:whitespace-nowrap break-words"
+            className="font-display font-light leading-[0.9] tracking-[-0.01em] md:tracking-[-0.03em] text-pearl md:whitespace-nowrap break-words"
             style={{ fontSize: "clamp(2.25rem, 12vw, 9rem)" }}
           >
             {NAME.split("").map((char, i) => (
@@ -51,7 +51,7 @@ export default function Hero() {
                   delay: 0.2 + i * 0.05,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="inline-block"
+                className={`inline-block ${char === " " ? "w-[0.4em]" : ""}`}
                 style={{
                   fontVariationSettings: '"opsz" 144, "SOFT" 50, "WONK" 1',
                 }}
