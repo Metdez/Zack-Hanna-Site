@@ -17,24 +17,24 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-between px-6 md:px-12 lg:px-20 py-10 pt-28">
+    <section className="relative min-h-screen flex flex-col justify-between px-6 md:px-12 lg:px-20 py-10 pt-24 sm:pt-28">
       {/* Top bar */}
-      <div className="flex items-center justify-between font-mono text-[11px] tracking-[0.25em] text-ash uppercase">
+      <div className="flex items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.25em] text-ash uppercase">
         <span>Portfolio · 2026</span>
         <span>v1.0</span>
       </div>
 
       {/* Center grid: text + portrait */}
-      <div className="grid grid-cols-12 gap-8 md:gap-12 items-center">
-        <div className="col-span-12 md:col-span-9 flex flex-col gap-8 md:gap-10">
+      <div className="grid grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
+        <div className="col-span-12 md:col-span-9 flex flex-col gap-6 sm:gap-8 md:gap-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-mono text-[11px] tracking-[0.4em] text-ash uppercase flex items-center gap-3"
+            className="font-mono text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.4em] text-ash uppercase flex flex-wrap items-center gap-x-3 gap-y-2"
           >
-            <span className="h-px w-10 bg-accent" />
-            Sophomore · Builder · AI Strategist
+            <span className="h-px w-6 sm:w-10 bg-accent" />
+            <span>Sophomore · Builder · AI Strategist</span>
           </motion.div>
 
           <h1
@@ -152,7 +152,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="flex items-center justify-between font-mono text-[11px] tracking-[0.25em] text-ash uppercase"
+        className="flex items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.25em] text-ash uppercase"
       >
         <button
           type="button"
