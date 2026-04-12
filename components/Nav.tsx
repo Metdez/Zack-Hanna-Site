@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLenis } from "lenis/react";
 
@@ -33,6 +34,7 @@ export default function Nav() {
     } else {
       el.scrollIntoView({ behavior: "smooth" });
     }
+    window.history.replaceState(null, "", `/#${id}`);
   };
 
   return (
@@ -61,9 +63,13 @@ export default function Nav() {
         <ul className="hidden md:flex items-center gap-1">
           {links.map((l) => (
             <li key={l.id}>
-              <button
-                type="button"
-                onClick={() => go(l.id)}
+              <Link
+                href={`/#${l.id}`}
+                scroll={false}
+                onClick={(event) => {
+                  event.preventDefault();
+                  go(l.id);
+                }}
                 className="group relative cursor-pointer px-4 py-2 font-mono text-[10px] tracking-[0.25em] text-ash uppercase hover:text-pearl transition-colors duration-500 focus-visible:text-pearl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink rounded-sm"
               >
                 <span className="text-accent/50 mr-2 group-hover:text-accent transition-colors duration-500">
@@ -71,7 +77,7 @@ export default function Nav() {
                 </span>
                 {l.label}
                 <span className="absolute left-4 right-4 -bottom-0.5 h-px bg-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
-              </button>
+              </Link>
             </li>
           ))}
         </ul>
@@ -111,9 +117,13 @@ export default function Nav() {
         <ul className="px-6 pb-8 pt-2 space-y-1 border-t border-pearl/8 fluid-nav-surface">
           {links.map((l) => (
             <li key={l.id}>
-              <button
-                type="button"
-                onClick={() => go(l.id)}
+              <Link
+                href={`/#${l.id}`}
+                scroll={false}
+                onClick={(event) => {
+                  event.preventDefault();
+                  go(l.id);
+                }}
                 className="w-full min-h-[56px] flex items-baseline justify-between py-4 border-b border-pearl/5 group cursor-pointer focus-visible:outline-none focus-visible:bg-pearl/5 rounded-sm"
               >
                 <span className="font-mono text-[10px] tracking-[0.25em] text-accent/60">
@@ -125,7 +135,7 @@ export default function Nav() {
                 >
                   {l.label}
                 </span>
-              </button>
+              </Link>
             </li>
           ))}
         </ul>

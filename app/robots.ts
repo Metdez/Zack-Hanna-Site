@@ -22,6 +22,8 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "Googlebot", allow: "/" },
       // Anthropic / Claude
       { userAgent: "ClaudeBot", allow: "/" },
+      { userAgent: "Claude-SearchBot", allow: "/" },
+      { userAgent: "Claude-User", allow: "/" },
       { userAgent: "Claude-Web", allow: "/" },
       { userAgent: "anthropic-ai", allow: "/" },
       // Apple Intelligence
@@ -32,7 +34,7 @@ export default function robots(): MetadataRoute.Robots {
       // Microsoft / Bing
       { userAgent: "Bingbot", allow: "/" },
     ],
-    sitemap: "https://zackhanna.com/sitemap.xml",
-    host: "https://zackhanna.com",
+    sitemap: "https://www.zackhanna.com/sitemap.xml",
+    host: "https://www.zackhanna.com",
   };
 }

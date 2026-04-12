@@ -7,7 +7,13 @@ import FluidBackground from "@/components/FluidBackground";
 import Nav from "@/components/Nav";
 import { projects } from "@/lib/projects";
 
-const SITE_URL = "https://zackhanna.com";
+const SITE_URL = "https://www.zackhanna.com";
+const PERSON_ID = `${SITE_URL}/#person`;
+const ORGANIZATION_ID = `${SITE_URL}/#organization`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
+const PROFILE_PAGE_ID = `${SITE_URL}/#profilepage`;
+const PROFILE_CREATED_AT = "2026-04-11";
+const PROFILE_UPDATED_AT = "2026-04-12";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -103,18 +109,22 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-// Build the JSON-LD @graph once at module load. Combines Person (primary entity),
-// WebSite, ProfilePage (with section anchors as hasPart), and CreativeWork nodes
-// for each project pulled from lib/projects.ts — keeps schema in sync with data.
-// This is the AEO core: answer engines (ChatGPT, Perplexity, Google AI Overviews,
-// Claude, Gemini) rely on structured data to decide whom to cite.
-const PERSON_ID = `${SITE_URL}/#person`;
+const projectId = (name: string) =>
+  `${SITE_URL}/#project-${name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")}`;
 
+// Build the JSON-LD @graph once at module load. Combines Person (primary entity),
+// Organization, WebSite, ProfilePage, and CreativeWork nodes so metadata stays in
+// sync with the visible homepage content while giving crawlers cleaner entity links.
 const projectNodes = projects.map((p) => ({
+  "@id": projectId(p.name),
   "@type": "CreativeWork",
   name: p.name,
   description: p.description,
   creator: { "@id": PERSON_ID },
+  isPartOf: { "@id": PROFILE_PAGE_ID },
   url: p.link ? `https://${p.link.replace(/^https?:\/\//, "")}` : SITE_URL,
   ...(p.image ? { image: `${SITE_URL}${p.image}` } : {}),
 }));
@@ -128,13 +138,16 @@ const schemaGraph = {
       name: "Zack Hanna",
       url: SITE_URL,
       image: `${SITE_URL}/zack.jpg`,
+      givenName: "Zack",
+      familyName: "Hanna",
       jobTitle: "Founder & AI Strategist",
       description:
         "Builder, founder, and AI strategist. Founder of Licom AI. Seeking a Summer 2026 AI strategy role.",
-      worksFor: {
-        "@type": "Organization",
-        name: "Licom AI",
-        url: "https://licom.ai",
+      mainEntityOfPage: { "@id": `${SITE_URL}/#profilepage` },
+      worksFor: { "@id": ORGANIZATION_ID },
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "Hobart and William Smith",
       },
       knowsAbout: [
         "AI strategy",
@@ -145,11 +158,20 @@ const schemaGraph = {
         "Business automation",
         "AI consulting",
       ],
-      sameAs: ["https://github.com/Metdez", "https://licom.ai"],
+      sameAs: [
+        "https://github.com/Metdez",
+        "https://www.linkedin.com/in/zackary-hanna-515138331/",
+      ],
+    },
+    {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: "Licom AI",
+      url: "https://licom.ai",
     },
     {
       "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
+      "@id": WEBSITE_ID,
       url: SITE_URL,
       name: "Zack Hanna",
       description:
@@ -159,12 +181,16 @@ const schemaGraph = {
     },
     {
       "@type": "ProfilePage",
-      "@id": `${SITE_URL}/#profilepage`,
+      "@id": PROFILE_PAGE_ID,
       url: SITE_URL,
       name: SITE_TITLE,
       description: SITE_DESCRIPTION,
       mainEntity: { "@id": PERSON_ID },
+      about: { "@id": PERSON_ID },
+      isPartOf: { "@id": WEBSITE_ID },
       inLanguage: "en-US",
+      dateCreated: PROFILE_CREATED_AT,
+      dateModified: PROFILE_UPDATED_AT,
       hasPart: [
         { "@type": "WebPageElement", name: "What I Do", url: `${SITE_URL}/#what-i-do` },
         { "@type": "WebPageElement", name: "Projects", url: `${SITE_URL}/#built` },

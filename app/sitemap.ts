@@ -1,12 +1,10 @@
 import type { MetadataRoute } from "next";
 
 // Next.js 16 native metadata route — generates /sitemap.xml at build time.
-// Single-page portfolio: only the root URL is a real page. Anchor sections
-// (#what-i-do, #built, etc.) are surfaced to answer engines via the
-// ProfilePage `hasPart` JSON-LD graph in app/layout.tsx, not here —
-// URL fragments aren't independently indexable sitemap entries.
+// The homepage is the primary indexable route today, with the resume PDF added
+// as a second crawl target so search engines can discover it directly.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://zackhanna.com";
+  const base = "https://www.zackhanna.com";
   return [
     {
       url: base,
@@ -14,6 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1.0,
       images: [`${base}/zack.jpg`],
+    },
+    {
+      url: `${base}/resume.pdf`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
   ];
 }
