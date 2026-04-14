@@ -17,6 +17,10 @@ export default function Hero() {
     else el.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Delay offsets mirror the previous motion timings so the visual cadence
+  // is unchanged. Kept as constants for readability.
+  const NAME_DONE = 0.2 + NAME.length * 0.05;
+
   return (
     <section className="relative min-h-screen flex flex-col justify-between px-6 md:px-12 lg:px-20 py-10 pt-24 sm:pt-28">
       {/* Top bar */}
@@ -28,65 +32,42 @@ export default function Hero() {
       {/* Center grid: text + portrait */}
       <div className="grid grid-cols-12 gap-6 sm:gap-8 md:gap-12 items-center">
         <div className="col-span-12 md:col-span-9 flex flex-col gap-6 sm:gap-8 md:gap-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-mono text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.4em] text-ash uppercase flex flex-wrap items-center gap-x-3 gap-y-2"
-          >
+          <div className="hero-reveal font-mono text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.4em] text-ash uppercase flex flex-wrap items-center gap-x-3 gap-y-2">
             <span className="h-px w-6 sm:w-10 bg-accent" />
             <span>Sophomore · Builder · AI Strategist</span>
-          </motion.div>
+          </div>
 
           <h1
             className="font-display font-light leading-[0.9] tracking-[-0.01em] md:tracking-[-0.03em] text-pearl md:whitespace-nowrap break-words"
             style={{ fontSize: "clamp(2.25rem, 12vw, 9rem)" }}
           >
             {NAME.split("").map((char, i) => (
-              <motion.span
+              <span
                 key={i}
-                initial={{ opacity: 0, y: 80 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.9,
-                  delay: 0.2 + i * 0.05,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className={`inline-block ${char === " " ? "w-[0.4em]" : ""}`}
+                className={`hero-char ${char === " " ? "w-[0.4em]" : ""}`}
                 style={{
+                  animationDelay: `${0.2 + i * 0.05}s`,
                   fontVariationSettings: '"opsz" 144, "SOFT" 50, "WONK" 1',
                 }}
               >
                 {char === " " ? "\u00A0" : char}
-              </motion.span>
+              </span>
             ))}
           </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1,
-              delay: 0.2 + NAME.length * 0.05 + 0.2,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="max-w-2xl text-lg md:text-xl text-pearl/75 leading-relaxed font-light"
+          <p
+            className="hero-reveal max-w-2xl text-lg md:text-xl text-pearl/75 leading-relaxed font-light"
+            style={{ animationDelay: `${NAME_DONE + 0.2}s` }}
           >
             I build software that solves business problems — and I&apos;m looking
             for an AI strategy role this summer where I can help a company
             operationalize AI across its operations.
-          </motion.p>
+          </p>
 
           {/* Primary CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1,
-              delay: 0.2 + NAME.length * 0.05 + 0.45,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="flex flex-wrap items-center gap-4"
+          <div
+            className="hero-reveal flex flex-wrap items-center gap-4"
+            style={{ animationDelay: `${NAME_DONE + 0.45}s` }}
           >
             <button
               type="button"
@@ -109,35 +90,26 @@ export default function Hero() {
                 →
               </span>
             </a>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1,
-              delay: 0.2 + NAME.length * 0.05 + 0.7,
-              ease: [0.22, 1, 0.36, 1],
-            }}
+          <div
+            className="hero-reveal"
+            style={{ animationDelay: `${NAME_DONE + 0.7}s` }}
           >
             <LookingForSpec />
-          </motion.div>
+          </div>
         </div>
 
         {/* Portrait */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="col-span-12 md:col-span-3 flex flex-col items-center md:items-end gap-4"
+        <div
+          className="hero-reveal-lg col-span-12 md:col-span-3 flex flex-col items-center md:items-end gap-4"
+          style={{ animationDelay: "0.6s" }}
         >
           <div className="relative group w-48 sm:w-56 md:w-full md:max-w-[260px]">
             {/* Accent frame */}
-            <motion.div
-              className="absolute -inset-2 border border-accent/30"
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, delay: 1.4 }}
+            <div
+              className="hero-frame absolute -inset-2 border border-accent/30"
+              style={{ animationDelay: "1.4s" }}
             />
             <div className="relative aspect-square w-full overflow-hidden fluid-panel fluid-media-shell">
               <Image
@@ -176,15 +148,13 @@ export default function Hero() {
             </svg>
             <span>LinkedIn</span>
           </a>
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll hint (clickable) */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="flex items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.25em] text-ash uppercase"
+      <div
+        className="hero-fade flex items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.25em] text-ash uppercase"
+        style={{ animationDelay: "2s" }}
       >
         <button
           type="button"
@@ -208,7 +178,7 @@ export default function Hero() {
           aria-hidden
         />
         <span>06 sections</span>
-      </motion.div>
+      </div>
     </section>
   );
 }

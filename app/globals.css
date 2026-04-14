@@ -143,9 +143,59 @@ html.lenis body {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
+/* Entrance reveals — CSS-driven so Hero is visible even without JS */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-fade-up-lg {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-char-rise {
+  from { opacity: 0; transform: translateY(80px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-frame-pop {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes hero-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-reveal,
+.hero-reveal-lg,
+.hero-char,
+.hero-frame,
+.hero-fade {
+  /* Start visible so if animations are disabled/unsupported/blocked,
+     content still renders. animation-fill-mode: both holds the from-state
+     while the animation is actually running. */
+  opacity: 1;
+  will-change: opacity, transform;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+.hero-reveal    { animation-name: hero-fade-up;    animation-duration: 0.9s; }
+.hero-reveal-lg { animation-name: hero-fade-up-lg; animation-duration: 1s; }
+.hero-char      { animation-name: hero-char-rise;  animation-duration: 0.9s; display: inline-block; }
+.hero-frame     { animation-name: hero-frame-pop;  animation-duration: 1.2s; }
+.hero-fade      { animation-name: hero-fade;       animation-duration: 1s; }
+
 @media (prefers-reduced-motion: reduce) {
   .shimmer {
     animation-duration: 14s;
+  }
+  .hero-reveal,
+  .hero-reveal-lg,
+  .hero-char,
+  .hero-frame,
+  .hero-fade {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 
