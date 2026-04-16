@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import type { Project } from "@/lib/projects";
@@ -12,13 +13,33 @@ export default function ProjectCard({
   index: number;
 }) {
   const isEven = index % 2 === 0;
+  const ref = useRef<HTMLElement>(null);
+
+  // Same IO-based reveal as Reveal.tsx — article starts visible in SSR HTML
+  // so Motion's client chain not completing never causes an invisible card.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("reveal-shown");
+          observer.disconnect();
+        } else {
+          el.classList.add("reveal-card-hidden");
+        }
+      },
+      { threshold: 0.15 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+    <article
+      ref={ref as React.RefObject<HTMLElement>}
       className="group grid grid-cols-12 gap-4 sm:gap-6 md:gap-10 items-center"
     >
       {/* Screenshot */}
@@ -51,7 +72,7 @@ export default function ProjectCard({
               </div>
             </>
           )}
-          {/* Corner accent — scaleX is composite-only (no layout/paint) */}
+          {/* Decorative accent line — scaleX only, no opacity, safe to keep on Motion */}
           <motion.div
             className="absolute bottom-0 left-0 h-px w-full bg-accent z-10 origin-left"
             initial={{ scaleX: 0 }}
@@ -131,6 +152,6 @@ export default function ProjectCard({
           </p>
         )}
       </div>
-    </motion.article>
+    </article>
   );
 }

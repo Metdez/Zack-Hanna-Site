@@ -199,6 +199,48 @@ html.lenis body {
   }
 }
 
+/* Scroll reveals — CSS-driven so sections are visible without JS.
+   IO adds .reveal-hidden when element is below the fold, then
+   .reveal-shown when it enters the viewport. Without JS both classes
+   are absent → content is always visible (opacity default = 1). */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.reveal-hidden.reveal-shown {
+  opacity: 1;
+  transform: translateY(0);
+  /* delay is threaded via --reveal-delay CSS custom property */
+  transition:
+    opacity 0.9s var(--reveal-delay, 0s) cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s var(--reveal-delay, 0s) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-card-hidden {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.reveal-card-hidden.reveal-shown {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-hidden,
+  .reveal-hidden.reveal-shown,
+  .reveal-card-hidden,
+  .reveal-card-hidden.reveal-shown {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Hide scrollbar but keep scroll */
 ::-webkit-scrollbar {
   width: 0;
