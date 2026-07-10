@@ -36,7 +36,7 @@ const jetbrains = JetBrains_Mono({
 
 const SITE_TITLE = "Zack Hanna — Builder, Founder, AI Strategist";
 const SITE_DESCRIPTION =
-  "Zack Hanna is a sophomore, builder, and AI strategist. Founder of Licom AI. Building software that solves real business problems — seeking a Summer 2026 AI strategy role.";
+  "Zack Hanna is a junior, builder, and AI strategist. Founder of Licom AI. Building software that solves real business problems — open to AI strategy, forward-deployed engineering, and consulting roles.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
   keywords: [
     "Zack Hanna",
     "AI strategist",
-    "AI strategy intern",
-    "Summer 2026 internship",
+    "forward deployed engineer",
+    "AI solutions architect",
     "Licom AI",
     "CST Logistics",
     "builder",
@@ -142,12 +142,12 @@ const schemaGraph = {
       familyName: "Hanna",
       jobTitle: "Founder & AI Strategist",
       description:
-        "Builder, founder, and AI strategist. Founder of Licom AI. Seeking a Summer 2026 AI strategy role.",
+        "Builder, founder, and AI strategist. Founder of Licom AI. Open to AI strategy, forward-deployed engineering, and consulting roles.",
       mainEntityOfPage: { "@id": `${SITE_URL}/#profilepage` },
       worksFor: { "@id": ORGANIZATION_ID },
       alumniOf: {
         "@type": "CollegeOrUniversity",
-        name: "Hobart and William Smith",
+        name: "Northeastern University",
       },
       knowsAbout: [
         "AI strategy",

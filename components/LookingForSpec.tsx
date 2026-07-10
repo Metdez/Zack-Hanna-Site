@@ -1,7 +1,8 @@
 const SPEC = [
-  { label: "Role", value: "AI Strategy Intern" },
-  { label: "Term", value: "May 12 — Aug 30, 2026" },
-  { label: "Compensation", value: "Paid preferred" },
+  {
+    label: "Roles",
+    value: "AI Strategy · Forward Deployed Engineer · AI Consulting · AI Solutions Architect",
+  },
   {
     label: "Preferred Location",
     value: "Silicon Valley, CA · New York City, NY · Boston, MA · Austin, TX",

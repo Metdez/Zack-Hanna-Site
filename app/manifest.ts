@@ -9,7 +9,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Zack Hanna — Builder, Founder, AI Strategist",
     short_name: "Zack Hanna",
     description:
-      "Portfolio of Zack Hanna — builder, founder, and AI strategist. Founder of Licom AI. Seeking a Summer 2026 AI strategy role.",
+      "Portfolio of Zack Hanna — builder, founder, and AI strategist. Founder of Licom AI. Open to AI strategy, forward-deployed engineering, and consulting roles.",
     start_url: "/",
     display: "standalone",
     background_color: "#000000",

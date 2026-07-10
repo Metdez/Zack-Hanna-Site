@@ -1,6 +1,6 @@
 # Zack Hanna — Portfolio Site
 
-> A cinematic, editorial single-page portfolio for **Zack Hanna** — sophomore, builder, AI strategist. Dark-mode by default, heavy on typography, layered motion, and ambient video. Built to land a Summer 2026 AI strategy internship at a serious company.
+> A cinematic, editorial single-page portfolio for **Zack Hanna** — junior, builder, AI strategist. Dark-mode by default, heavy on typography, layered motion, and ambient video. Built to land a Summer 2026 AI strategy internship at a serious company.
 
 **Live:** [zackhanna.com](https://zackhanna.com) · **Repo:** [Metdez/Zack-Hanna-Site](https://github.com/Metdez/Zack-Hanna-Site)
 

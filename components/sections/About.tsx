@@ -24,14 +24,12 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-pearl/75 font-light max-w-3xl">
-              Sophomore at{" "}
-              <span className="text-accent">Hobart and William Smith</span>.
+              Junior at{" "}
+              <span className="text-accent">Northeastern</span>.
               I founded Licom AI and have spent the last year building real
               software for real companies — from full ERP systems to AI
               chatbot integrations. I manage a small dev team, close my own
-              deals, and operate like a founder. This summer I want to pair
-              that experience with corporate mentorship and learn how
-              experienced leaders think about strategy at scale.
+              deals, and operate like a founder.
             </p>
           </Reveal>
         </div>

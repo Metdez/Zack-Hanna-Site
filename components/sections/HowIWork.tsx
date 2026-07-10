@@ -3,7 +3,7 @@ import SectionLabel from "../SectionLabel";
 
 export default function HowIWork() {
   return (
-    <section id="how-i-work" className="relative px-6 sm:px-8 md:px-12 lg:px-20 py-24 sm:py-32 md:py-48">
+    <section id="how-i-work" className="relative px-6 sm:px-8 md:px-12 lg:px-20 pt-24 sm:pt-32 md:pt-48 pb-12 sm:pb-16 md:pb-24">
       <div className="max-w-6xl mx-auto grid grid-cols-12 gap-8">
         <div className="col-span-12 md:col-span-4">
           <Reveal>
