@@ -147,7 +147,7 @@ const schemaGraph = {
       worksFor: { "@id": ORGANIZATION_ID },
       alumniOf: {
         "@type": "CollegeOrUniversity",
-        name: "Northeastern University",
+        name: "Hobart and William Smith Colleges",
       },
       knowsAbout: [
         "AI strategy",

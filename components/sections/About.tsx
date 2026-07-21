@@ -25,7 +25,7 @@ export default function About() {
           <Reveal delay={0.1}>
             <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-pearl/75 font-light max-w-3xl">
               Junior at{" "}
-              <span className="text-accent">Northeastern</span>.
+              <span className="text-accent">Hobart and William Smith</span>.
               I founded Licom AI and have spent the last year building real
               software for real companies — from full ERP systems to AI
               chatbot integrations. I manage a small dev team, close my own
