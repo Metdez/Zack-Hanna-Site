@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import type { Project } from "@/lib/projects";
+import { capturePortfolioEvent } from "@/lib/portfolio-analytics";
 
 export default function ProjectCard({
   project,
@@ -116,6 +117,12 @@ export default function ProjectCard({
               href={`https://${project.link}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                capturePortfolioEvent("portfolio_project_link_clicked", {
+                  project_name: project.name,
+                  link_type: "live_site",
+                })
+              }
               className="inline-flex cursor-pointer items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-pearl border border-pearl/20 min-h-[44px] px-4 py-3 transition-all duration-500 hover:border-accent hover:text-accent hover:bg-accent/5 focus-visible:outline-none focus-visible:border-accent focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               <span>{project.link}</span>
@@ -128,6 +135,12 @@ export default function ProjectCard({
             <a
               href={project.download.href}
               download
+              onClick={() =>
+                capturePortfolioEvent("portfolio_project_link_clicked", {
+                  project_name: project.name,
+                  link_type: "download",
+                })
+              }
               className="inline-flex cursor-pointer items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-accent border border-accent/40 min-h-[44px] px-4 py-3 transition-all duration-500 hover:border-accent hover:bg-accent/10 focus-visible:outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               <span>{project.download.label}</span>
@@ -139,6 +152,12 @@ export default function ProjectCard({
               href={project.secondaryLink.href}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                capturePortfolioEvent("portfolio_project_link_clicked", {
+                  project_name: project.name,
+                  link_type: "secondary",
+                })
+              }
               className="inline-flex cursor-pointer items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-pearl border border-pearl/20 min-h-[44px] px-4 py-3 transition-all duration-500 hover:border-accent hover:text-accent hover:bg-accent/5 focus-visible:outline-none focus-visible:border-accent focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               <span>{project.secondaryLink.label}</span>

@@ -67,6 +67,10 @@ export default function Contact() {
                       href={row.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      data-ph-capture-attribute-portfolio-cta={row.label
+                        .toLowerCase()
+                        .replaceAll(" ", "_")}
+                      data-ph-capture-attribute-location="contact_section"
                       className="inline-block py-2 font-display text-xl sm:text-2xl md:text-4xl text-pearl hover:text-accent transition-colors duration-500 focus-visible:outline-none focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-ink rounded-sm break-all"
                     >
                       {row.value} →

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { capturePortfolioEvent } from "@/lib/portfolio-analytics";
 
 const RESUME_PATH = "/resume.pdf";
 const DOWNLOAD_NAME = "Zackary-Hanna-Resume.pdf";
@@ -65,6 +66,12 @@ export default function ResumeViewer() {
           <a
             href={RESUME_PATH}
             download={DOWNLOAD_NAME}
+            onClick={() =>
+              capturePortfolioEvent("portfolio_resume_interacted", {
+                action: "download",
+                location: "contact_section",
+              })
+            }
             className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase text-pearl hover:text-accent transition-colors duration-300 focus-visible:outline-none focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-ink rounded-sm"
           >
             <ArrowDownIcon />
@@ -74,6 +81,12 @@ export default function ResumeViewer() {
             href={RESUME_PATH}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              capturePortfolioEvent("portfolio_resume_interacted", {
+                action: "open",
+                location: "contact_section",
+              })
+            }
             className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase text-pearl hover:text-accent transition-colors duration-300 focus-visible:outline-none focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-ink rounded-sm"
           >
             <ExternalLinkIcon />
@@ -95,6 +108,12 @@ export default function ResumeViewer() {
               href={RESUME_PATH}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                capturePortfolioEvent("portfolio_resume_interacted", {
+                  action: "open",
+                  location: "contact_section_mobile",
+                })
+              }
               className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 border border-pearl/20 text-pearl hover:text-accent hover:border-accent/60 transition-colors duration-300 font-mono text-[10px] tracking-[0.25em] uppercase rounded-sm"
             >
               <ExternalLinkIcon />
@@ -103,6 +122,12 @@ export default function ResumeViewer() {
             <a
               href={RESUME_PATH}
               download={DOWNLOAD_NAME}
+              onClick={() =>
+                capturePortfolioEvent("portfolio_resume_interacted", {
+                  action: "download",
+                  location: "contact_section_mobile",
+                })
+              }
               className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 bg-pearl text-ink hover:bg-accent transition-colors duration-300 font-mono text-[10px] tracking-[0.25em] uppercase rounded-sm"
             >
               <ArrowDownIcon />

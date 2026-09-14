@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { useLenis } from "lenis/react";
 import LookingForSpec from "../LookingForSpec";
 import ToolsMarquee from "../ToolsMarquee";
+import { capturePortfolioEvent } from "@/lib/portfolio-analytics";
 
 const NAME = "ZACK HANNA";
 
@@ -73,7 +74,13 @@ export default function Hero() {
           >
             <button
               type="button"
-              onClick={() => scrollTo("built")}
+              onClick={() => {
+                capturePortfolioEvent("portfolio_cta_clicked", {
+                  cta: "view_work",
+                  location: "hero",
+                });
+                scrollTo("built");
+              }}
               className="group inline-flex min-h-[44px] cursor-pointer items-center gap-3 border border-accent bg-accent/10 px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.25em] text-accent transition-all duration-500 hover:bg-accent hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               <span>View work</span>
@@ -85,6 +92,12 @@ export default function Hero() {
               href="https://calendly.com/zh-licom/30min"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                capturePortfolioEvent("portfolio_cta_clicked", {
+                  cta: "book_call",
+                  location: "hero",
+                })
+              }
               className="group inline-flex min-h-[44px] cursor-pointer items-center gap-3 border border-pearl/20 px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.25em] text-pearl transition-all duration-500 hover:border-pearl hover:bg-pearl/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pearl focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               <span>Book a call</span>
@@ -137,6 +150,12 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Zack Hanna on LinkedIn"
+            onClick={() =>
+              capturePortfolioEvent("portfolio_cta_clicked", {
+                cta: "linkedin_profile",
+                location: "hero",
+              })
+            }
             className="group inline-flex min-h-[44px] items-center gap-2 border border-pearl/20 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.25em] text-pearl transition-all duration-500 hover:border-accent hover:text-accent hover:bg-accent/5 focus-visible:outline-none focus-visible:border-accent focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
           >
             <svg
@@ -160,7 +179,13 @@ export default function Hero() {
       >
         <button
           type="button"
-          onClick={() => scrollTo("what-i-do")}
+          onClick={() => {
+            capturePortfolioEvent("portfolio_cta_clicked", {
+              cta: "scroll_to_next_section",
+              location: "hero",
+            });
+            scrollTo("what-i-do");
+          }}
           aria-label="Scroll to next section"
           className="group flex cursor-pointer items-center gap-3 px-1 py-1 transition-colors duration-500 hover:text-pearl focus-visible:text-pearl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
         >

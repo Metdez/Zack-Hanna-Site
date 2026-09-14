@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLenis } from "lenis/react";
+import { capturePortfolioEvent } from "@/lib/portfolio-analytics";
 
 const links = [
   { id: "what-i-do", label: "What I Do", index: "01" },
@@ -27,6 +28,7 @@ export default function Nav() {
 
   const go = (id: string) => {
     setOpen(false);
+    capturePortfolioEvent("portfolio_section_navigated", { section_id: id });
     const el = document.getElementById(id);
     if (!el) return;
     if (lenis) {
